@@ -84,7 +84,76 @@ def vgg160():
     model.add(layers.Activation('relu'))
     model.add(layers.BatchNormalization())
     model.add(layers.Dropout(0.3))
-    #...(keep the model structure unchanged)
+    # Adding the second convolutional layer
+    model.add( layers.Conv2D( 64, (3, 3), padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D(pool_size=(2, 2)))
+    # Adding the third convolutional layer
+    model.add(layers.Conv2D(128,(3,3),padding='same',kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the forth convolutional layer
+    model.add(layers.Conv2D(128,(3,3), padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D(pool_size=(2,2)))
+    # Adding the fifth convolutional layer
+    model.add(layers.Conv2D(256,(3,3),padding='same',kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the sixth convolutional layer
+    model.add(layers.Conv2D(256, (3, 3), padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the seventh convolutional layer
+    model.add(layers.Conv2D(256,(3,3),padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D(pool_size=(2,2)))
+    # Adding the eighth convolutional layer
+    model.add(layers.Conv2D(512,(3,3), padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the ninth convolutional layer
+    model.add(layers.Conv2D(512,(3,3),padding='same',kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the tenth convolutional layer
+    model.add(layers.Conv2D(512,(3,3),padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D(pool_size=(2,2)))
+    # Adding the eleventh convolutional layer
+    model.add(layers.Conv2D(512, (3,3), padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the twelfth convolutional layer
+    model.add(layers.Conv2D(512,(3,3),padding='same', kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.Dropout(0.4))
+    # Adding the thirteenth convolutional layer
+    model.add(layers.Conv2D(512,(3,3),padding='same',kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    model.add(layers.MaxPooling2D(pool_size=(2,2)))
+    model.add(layers.Dropout(0.5))
+    # Adding the fourteenth convolutional layer
+    model.add(layers.Flatten())
+    model.add(layers.Dense(512,kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
+    # Adding the fifteenth convolutional layer
+    model.add(layers.Dense(512,kernel_regularizer=regularizers.l1(weight_decay)))
+    model.add(layers.Activation('relu'))
+    model.add(layers.BatchNormalization())
     # Adding the sixteenth convolutional layer
     model.add(layers.Dropout(0.8))
     model.add(layers.Dense(2))
